@@ -4,8 +4,40 @@
         .vis-container, .vis-container svg {width: 100%;}
         body {background-color: rgb(59, 63, 65);}
     </style>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        $(function(){
+            var getvars = window.location.search.substr(1);
+            var selector = $("#selector");
+
+            if (getvars.match(/style/)) {
+              var style = getvars.
+                split('&').
+                filter(function(s){ return s.match(/^style/) }).
+                map(function(s){ return s.split('=')[1] })
+
+              selector.val(style);
+            }
+
+            selector.on('change', function() {
+              var params = getvars.
+                split('&').
+                filter(function(s){ return !s.match(/^(style)/) });
+
+              params.push('style=' + selector.val());
+              window.location = "/eval?" + params.join('&');
+              e.stopPropagation();
+            });
+        })
+    </script>
 </head>
 <body>
+    <select id="selector">
+      {% for t in types %}
+        <option value="{{t}}">{{t}}</option>
+      {% endfor %}
+    </select>
+
     <div class="vis-container">
         {{ r.decode('utf-8')|safe }}
     </div>
