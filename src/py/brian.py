@@ -1,6 +1,6 @@
 from flask import Flask, url_for, request
 import re
-import urllib2
+import time
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
@@ -32,14 +32,13 @@ class Renderer:
     exec code in gl,loc
     result = eval(expr, loc)
 
+    #os.remove('static/figure.svg')
+
     plt.bar(range(len(result)),result)
     plt.savefig('static/figure.svg', transparent=True)
 
-    with open('static/figure.svg', 'r') as content_file:
-      svg = content_file.read()
-
     print lines
-    return '<html><body style="background-color: rgb(59, 63, 65);"><img style="width:100%;" src="static/figure.svg" /></body></html>'
+    return '<html><body style="background-color: rgb(59, 63, 65);"><img style="width:100%;" src="static/figure.svg?' + str(time.time()) + '" /></body></html>'
 
 
 

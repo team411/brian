@@ -3,14 +3,15 @@
  "compiled.map",
  "sources":
  ["src/lt/plugins/brian.cljs"],
- "lineCount":40,
+ "lineCount":48,
  "mappings":
- ";AAAA;;;;;;;;;;;;;;;;AAWA,AAAKA,2BAAQ,mCAAA,nCAACC;AAEd,kCAAA,lCAAKC;AAGL,4BAAA,qBAAA,jDAAMC,iDACJ,4CAAA,AAAA,kDAAA,2FAAA,rLAAMC,KAAG,AAACC,0IACA,AAACC,kCAAaF,yDAAU,yEAAA,zEAACG,wBAAI,wCAAA,xCAACC,qCAAgBJ;;AAQ1D,+BAAA,4BAAA,3DAAMK,qDAAaC,MACjB,oBAAIR;CACF,AAACS;;CADH;AAEA,qCAAA,rCAACC;AACD,qCAAA,rCAACA;AACD,qCAAA,rCAACA,gHAA2BF;AAC5B,qCAAA,rCAACE;AACD,kCAAA,lCAAKV;;AAGP,8BAAA,uBAAA,rDAAMS,qDACJ,qCAAA,rCAACC;AACD,qCAAA,rCAACA;AACD,qCAAA,rCAACA;AACD,kCAAA,lCAAKV;;AASP,mCAAA,4BAAA,/DAAMW,+DACJ,gDAAA,5CAAMC,OAAK,AAACX,qCACR,OAACM,uCAAY,eAAA,oJAAA,lGAAwC,6BAAA,7BAACF,wBAAIO,kGAAqB,AAACC,mBAAsB,6BAAA,7BAACR,wBAAIO;;AAGjH,kCAAA,2CAAA,2DAAA,2EAAA,qDAAA,wBAAA,hSAACE,qVAEmBH",
+ ";AAAA;;;;;;;;;;;;;;;;AAaA,kCAAA,lCAAKA;AACL,6BAAA,7BAAKC;AAGL,4BAAA,qBAAA,jDAAMC,iDACJ,4CAAA,AAAA,kDAAA,2FAAA,rLAAMC,KAAG,AAACC,0IACA,AAACC,kCAAaF,yDAAU,yEAAA,zEAACG,wBAAI,wCAAA,xCAACC,qCAAgBJ;;AAQ1D,+BAAA,4BAAA,3DAAMK,qDAAaC,MACjB,oBAAIT;CACF,AAACU;;CADH;AAEA,qCAAA,rCAACC;AACD,qCAAA,rCAACA;AACD,qCAAA,rCAACA,gHAA2BF;AAC5B,qCAAA,rCAACE;AACD,kCAAA,lCAAKX;;AAGP,8BAAA,uBAAA,rDAAMU,qDACJ,qCAAA,rCAACC;AACD,qCAAA,rCAACA;AACD,qCAAA,rCAACA;AACD,kCAAA,lCAAKX;;AASP,mCAAA,4BAAA,/DAAMY,+DACJ,gDAAA,5CAAMC,OAAK,AAACX,qCACR,AAAKD,6BAAU,eAAA,fAACY;AAChB,OAACL,uCAAY,eAAA,oJAAA,lGAAwC,6BAAA,7BAACF,wBAAIO,kGAAqB,AAACC,mBAAsB,6BAAA,7BAACR,wBAAIO;;AAGjH,kCAAA,2CAAA,2DAAA,2EAAA,qDAAA,wBAAA,hSAACE,qVAEmBH;AAEpB,AAAA,AAAAI,yCAAA,wCAAA,RAEyBE,QACH,gDAAA,5CAAML,OAAK,AAACX,qCACV,GAAI,AAACiB,yBAAElB,2BAAU,eAAA,fAACY;CAChB,OAACD;;CADH;;;AAJxB,AAAAK,mCAAA,wGAAA,6DAAAD,uCAAA,6DAAA,iFAAA",
  "names":
- ["lt.plugins.brian/request", "lt.util.load/node-module",
-  "lt.plugins.brian/browser-opened", "lt.plugins.brian/get-code", "ed",
-  "lt.objs.find/current-ed", "lt.objs.editor/->val", "cljs.core/get",
-  "lt.objs.editor/->cursor", "lt.plugins.brian/render-data", "path",
+ ["lt.plugins.brian/browser-opened", "lt.plugins.brian/prev-line",
+  "lt.plugins.brian/get-code", "ed", "lt.objs.find/current-ed",
+  "lt.objs.editor/->val", "cljs.core/get", "lt.objs.editor/->cursor",
+  "lt.plugins.brian/render-data", "path",
   "lt.plugins.brian/close-btds", "lt.objs.command/exec!",
   "lt.plugins.brian/brian-visualize", "code", "js/encodeURIComponent",
-  "lt.objs.command/command"]}
+  "lt.objs.command/command", "lt.plugins.brian/__BEH__eval-on-change",
+  "lt.object/behavior*", "editor", "cljs.core/="]}
