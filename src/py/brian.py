@@ -4,6 +4,11 @@ import urllib2
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
+import os
+import sys
+
+sys.path.append(os.getcwd())
+from visualizer import *
 
 
 app = Flask(__name__)
@@ -27,19 +32,27 @@ class Renderer:
     gl = {}
     loc = {}
 
+    print "-----"
     print lines
+    print "-----"
+    print code
+    print "-----"
+    print expr
+    print "-----"
 
     exec code in gl,loc
     result = eval(expr, loc)
 
-    plt.bar(range(len(result)),result)
-    plt.savefig('static/figure.svg', transparent=True)
+    print result
+    print "-----"
 
-    with open('static/figure.svg', 'r') as content_file:
-      svg = content_file.read()
+    vis = Visualizer(result)
+    print vis.plot_types
+    result = vis.render("pie")
 
-    print lines
-    return '<html><body style="background-color: rgb(59, 63, 65);"><img style="width:100%;" src="static/figure.svg" /></body></html>'
+    return """<html>
+      <body style="background-color: rgb(59, 63, 65);">
+      <svg style="width:100%; height:100%" src="static/figure.svg">"""+result+"""</svg></body></html>"""
 
 
 
@@ -59,7 +72,7 @@ def evaluate():
 @app.route("/form")
 def form():
   return """
-  <form action="eval" method="post">
+  <form action="eval?line=3" method="post">
     <textarea name="src" rows="30" cols="90"></textarea>
     <br>
     <input type="submit">

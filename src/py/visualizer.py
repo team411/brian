@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
+import StringIO
 
 
 class Visualizer:
@@ -17,7 +18,10 @@ class Visualizer:
 
   def render(self, plot_type):
     self.bplot.prerender(plot_type)
-    plt.show()
+    imgdata = StringIO.StringIO()
+    plt.savefig(imgdata, format='svg', transparent=True)
+    imgdata.seek(0)
+    return imgdata.buf
 
 
 # line, points, bars, hist
