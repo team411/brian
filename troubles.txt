@@ -1,0 +1,10 @@
+* comment lines with pmeta-/
+* comment sing should be aligned with code
+* keybindings for workspace on/off
+* fix light script
+* syntax selector as standard feauture
+* syntax for empty files
+* tab navigation keybindings
+* format selection
+
+
