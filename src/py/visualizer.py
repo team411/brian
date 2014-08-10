@@ -6,9 +6,15 @@ import StringIO
 
 matplotlib.rcParams['text.color'] = 'w'
 matplotlib.rcParams['lines.linewidth'] = 1
-matplotlib.rcParams['font.size'] = 16
+matplotlib.rcParams['font.size'] = 18
 matplotlib.rcParams['patch.edgecolor'] = 'w'
 matplotlib.rcParams['image.cmap'] = 'gray'
+matplotlib.rcParams['axes.labelcolor'] = 'w'
+matplotlib.rcParams['axes.edgecolor'] = 'w'
+matplotlib.rcParams['axes.facecolor'] = 'w'
+matplotlib.rcParams['lines.markersize'] = 12
+matplotlib.rcParams['xtick.color'] = 'w'
+matplotlib.rcParams['ytick.color'] = 'w'
 
 
 class Visualizer:
@@ -45,7 +51,7 @@ class BList:
     if plot_type == "line":
       plt.plot(self.obj,'-')
     elif plot_type == "points":
-      plt.plot(self.obj,'.')
+      plt.plot(self.obj,'.', markerfacecolor='#FE6518', color='#FE6518')
     elif plot_type == "bars":
       plt.bar(range(len(self.obj)),self.obj)
     elif plot_type == "hist":
