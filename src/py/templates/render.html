@@ -3,6 +3,8 @@
     <style>
         .vis-container, .vis-container svg {width: 100%;}
         body {background-color: rgb(139, 143, 145);}
+        select {font-size: 20px;}
+        label {color: white;font-size: 18px;font-weight: light;}
     </style>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
@@ -32,6 +34,7 @@
     </script>
 </head>
 <body>
+    <label>Visualization type: </label>
     <select id="selector">
       {% for t in types %}
         <option value="{{t}}">{{t}}</option>
