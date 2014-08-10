@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request
+from flask import Flask, url_for, request, render_template
 import re
 import urllib2
 import numpy as np
@@ -50,11 +50,7 @@ class Renderer:
     print vis.plot_types
     result = vis.render("pie")
 
-    return """<html>
-      <body style="background-color: rgb(59, 63, 65);">
-      <svg style="width:100%; height:100%" src="static/figure.svg">"""+result+"""</svg></body></html>"""
-
-
+    return render_template('render.html', r=result)
 
 
 @app.route("/eval", methods=['GET', 'POST'])
