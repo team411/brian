@@ -1,7 +1,14 @@
 import numpy as np
+import matplotlib
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import StringIO
+
+matplotlib.rcParams['text.color'] = 'w'
+matplotlib.rcParams['lines.linewidth'] = 1
+matplotlib.rcParams['font.size'] = 16
+matplotlib.rcParams['patch.edgecolor'] = 'w'
+matplotlib.rcParams['image.cmap'] = 'gray'
 
 
 class Visualizer:
@@ -56,7 +63,7 @@ class BHash:
       plt.bar(x_pos, self.obj.values() )
       plt.xticks(x_pos, self.obj.keys())
     elif plot_type == "pie":
-      plt.pie(self.obj.values(), labels=self.obj.keys())
+      plt.pie(self.obj.values(), labels=self.obj.keys(), colors=('#93bc59', 'y', '#96acf3', '#FE6518'))
     elif plot_type == "values":
       plt.plot(self.obj.values())
 
