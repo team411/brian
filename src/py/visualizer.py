@@ -17,15 +17,17 @@ class Visualizer:
     plt.clf()
 
     # check avail plot types
-    if False:
+    if isinstance(obj, np.ndarray):
+      print "---!!! NDARR"
       self.bplot = BList(self.obj)
-    elif True:
+    elif isinstance(obj, dict):
+      print "---!!! DICT"
       self.bplot = BHash(self.obj)
 
     self.plot_types = self.bplot.plot_types
 
   def render(self, plot_type):
-    self.bplot.prerender(plot_type)
+    self.bplot.prerender()
     imgdata = StringIO.StringIO()
     plt.savefig(imgdata, format='svg', transparent=True)
     imgdata.seek(0)
@@ -39,7 +41,7 @@ class BList:
   def __init__(self, obj):
     self.obj = obj
 
-  def prerender(self, plot_type):
+  def prerender(self, plot_type = "points"):
     if plot_type == "line":
       plt.plot(self.obj,'-')
     elif plot_type == "points":
@@ -57,7 +59,7 @@ class BHash:
   def __init__(self, obj):
     self.obj = obj
 
-  def prerender(self, plot_type):
+  def prerender(self, plot_type = "pie"):
     if plot_type == "bars":
       x_pos = range(len(self.obj))
       plt.bar(x_pos, self.obj.values() )
