@@ -1,11 +1,21 @@
-import random
+# # ###################################################
+# # ## Example 1
+# # ###################################################
+# x = np.linspace(0, 4*np.pi, 3000)
+# y = np.sin(x)
+# # ###################################################
+# vis = Visualizer(y)
+# print vis.plot_types
+# vis.render("hist")
 
-arr = random.sample(range(100), 100)
 
-
-
-
-
-
+# ###################################################
+# ## Example 2
+# ###################################################
+monthes = {'january': 4098, 'february': 4139, 'march': 2342, 'april': 3452}
+# ###################################################
+vis = Visualizer(monthes)
+print vis.plot_types
+vis.render("values")
 
 
