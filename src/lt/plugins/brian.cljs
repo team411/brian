@@ -9,9 +9,10 @@
   (:require-macros [lt.macros :refer [behavior]]))
 
 ;; Define cljs binding to 'request' node module
-(def request (load/node-module "request"))
+;;(def request (load/node-module "request"))
 
 (def browser-opened false)
+(def prev-line -1)
 
 ;; Return current line and full code
 (defn get-code []
@@ -49,6 +50,7 @@
 ;; Main method to visualize data
 (defn brian-visualize []
   (let [code (get-code)]
+      (def prev-line (code :line))
       (render-data (str "http://localhost:5000/eval?line=" (get code :line) "&code=" (js/encodeURIComponent (get code :code)) ))))
 
 ;; Register global LT command
@@ -56,8 +58,12 @@
               :desc "Brian: visualize data"
               :exec brian-visualize})
 
-
-
+(behavior ::eval-on-change
+          :triggers #{:change}
+          :reaction (fn [editor]
+                      (let [code (get-code)]
+                        (if (= prev-line (code :line))
+                          (brian-visualize)))))
 
 
 

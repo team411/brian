@@ -1,6 +1,6 @@
 from flask import Flask, url_for, request, render_template
 import re
-import urllib2
+import time
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
