@@ -19,7 +19,7 @@
               selector.val(style);
             }
 
-            selector.on('change', function() {
+            selector.on('change', function(e) {
               var params = getvars.
                 split('&').
                 filter(function(s){ return !s.match(/^(style)/) });

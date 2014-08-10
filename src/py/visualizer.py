@@ -72,9 +72,6 @@ class BHash:
       plt.xticks(x_pos, self.obj.keys())
 
     elif plot_type == "pie" or plot_type==None:
-      plt.pie(self.obj.values(), labels=self.obj.keys())
-
-    elif plot_type == "pie" or plot_type==None:
       plt.pie(self.obj.values(), labels=self.obj.keys(), colors=('#93bc59', 'y', '#96acf3', '#FE6518'))
 
     elif plot_type == "values":
