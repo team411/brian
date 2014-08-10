@@ -1,0 +1,5 @@
+{:name "Brian"
+ :author ["Alexey Kondratov" "Stas Kelvich"]
+ :source "https://github.com/ololobus/lt-brian"
+ :desc "Python instant data visualization"
+ :behaviors "brian.behaviors"}
