@@ -1,7 +1,14 @@
 <html>
-<body style="background-color: rgb(59, 63, 65);">
-  {{ r|safe }}
-</svg>
+<head>
+    <style>
+        .vis-container, .vis-container svg {width: 100%;}
+        body {background-color: rgb(59, 63, 65);}
+    </style>
+</head>
+<body>
+    <div class="vis-container">
+        {{ r|safe }}
+    </div>
 </body>
 </html>
 
