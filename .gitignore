@@ -4,3 +4,4 @@ target
 .gitignore~
 static/*
 src/py/static/**
+*.pyc
