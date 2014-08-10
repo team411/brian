@@ -12,5 +12,5 @@
 * unecessary spaces
 * strange search behavior?
 * tab/spaces swithc?
-
+* sometimes some lines isn't accessible by arrows
 
