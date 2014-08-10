@@ -6,5 +6,11 @@
 * syntax for empty files
 * tab navigation keybindings
 * format selection
+* apps in file dialog is not accessible (read: cant open included plugins)
+* show unprinted symbols in menu
+* show linenumbers in menu
+* unecessary spaces
+* strange search behavior?
+* tab/spaces swithc?
 
 

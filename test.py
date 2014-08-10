@@ -1,23 +1,24 @@
-import random
-
-arr = random.sample(range(40), 40)
-
-
-
-
-# def qsort(list):
-#     if not list:
-#         return []
-#     else:
-#         pivot = list[0]
-#         less = [x for x in list     if x <  pivot]
-#         more = [x for x in list[1:] if x >= pivot]
-#         return qsort(less) + [pivot] + qsort(more)
+# # ###################################################
+# # ## Example 1
+# # ###################################################
+# x = np.linspace(0, 4*np.pi, 3000)
+# y = np.sin(x)
+# # ###################################################
+# vis = Visualizer(y)
+# print vis.plot_types
+# vis.render("hist")
 
 
-# arr = random.sample(range(40), 40)
-# quicksort(arr)
-# arr
+# ###################################################
+# ## Example 2
+# ###################################################
+monthes = {'january': 4098, 'february': 4139, 'march': 2342, 'april': 3452}
+# ###################################################
+vis = Visualizer(monthes)
+print vis.plot_types
+vis.render("values")
+
+
 
 
 
