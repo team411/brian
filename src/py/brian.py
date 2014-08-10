@@ -1,5 +1,6 @@
 from flask import Flask, url_for, request
 import re
+import urllib2
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
@@ -10,13 +11,14 @@ app = Flask(__name__)
 
 class Renderer:
 
-  def __init__(self, src):
+  def __init__(self, src, line):
     self.raw = src
+    self.line = int(line)
 
   def render(self):
     lines = filter(
       lambda x: not re.match(r'^\s*$', x),
-      self.raw.split("\n")
+      self.raw.split("\n")[:(self.line + 1)]
     )
     lines = map(lambda s: s.strip(), lines)
 
@@ -25,14 +27,19 @@ class Renderer:
     gl = {}
     loc = {}
 
+    print lines
+
     exec code in gl,loc
-    result = eval(expr,loc)
+    result = eval(expr, loc)
 
     plt.bar(range(len(result)),result)
-    plt.savefig('static/figure.svg')
+    plt.savefig('static/figure.svg', transparent=True)
+
+    with open('static/figure.svg', 'r') as content_file:
+      svg = content_file.read()
 
     print lines
-    return 'static/figure.svg'
+    return '<html><body style="background-color: rgb(59, 63, 65);"><img style="width:100%;" src="static/figure.svg" /></body></html>'
 
 
 
@@ -42,9 +49,9 @@ def evaluate():
   if request.method == 'POST':
     src = request.form['src']
   else:
-    src = request.args.get('src')
+    src = request.args.get('code')
 
-  r = Renderer(src)
+  r = Renderer(src, request.args.get('line'))
   out = r.render()
 
   return out
@@ -53,7 +60,7 @@ def evaluate():
 def form():
   return """
   <form action="eval" method="post">
-    <textarea name="src" rows="30" cols="90"></textarea >
+    <textarea name="src" rows="30" cols="90"></textarea>
     <br>
     <input type="submit">
   </form>

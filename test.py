@@ -19,13 +19,3 @@ print vis.plot_types
 vis.render("values")
 
 
-
-
-
-
-
-
-
-
-
-

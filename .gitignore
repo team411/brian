@@ -2,4 +2,6 @@
 target
 .nrepl-port
 .gitignore~
+static/*
+src/py/static/**
 *.pyc
