@@ -7,6 +7,7 @@ import StringIO
 class Visualizer:
   def __init__(self, obj):
     self.obj = obj
+    plt.clf()
 
     # check avail plot types
     if False:
