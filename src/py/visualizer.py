@@ -11,16 +11,15 @@ class Visualizer:
 
     # check avail plot types
     if isinstance(obj, np.ndarray):
-      print "---!!! NDARR"
       self.bplot = BList(self.obj)
+
     elif isinstance(obj, dict):
-      print "---!!! DICT"
       self.bplot = BHash(self.obj)
 
     self.plot_types = self.bplot.plot_types
 
   def render(self, plot_type):
-    self.bplot.prerender()
+    self.bplot.prerender(plot_type)
     imgdata = StringIO.StringIO()
     plt.savefig(imgdata, format='svg', transparent=True)
     imgdata.seek(0)
@@ -29,7 +28,7 @@ class Visualizer:
 
 # line, points, bars, hist
 class BList:
-  plot_types = ["line", "points", "bars", "hist"]
+  plot_types = ["points", "line", "bars", "hist"]
 
   def __init__(self, obj):
     self.obj = obj
@@ -37,7 +36,7 @@ class BList:
   def prerender(self, plot_type = "points"):
     if plot_type == "line":
       plt.plot(self.obj,'-')
-    elif plot_type == "points":
+    elif plot_type == "points" or plot_type==None:
       plt.plot(self.obj,'.')
     elif plot_type == "bars":
       plt.bar(range(len(self.obj)),self.obj)
@@ -47,18 +46,21 @@ class BList:
 
 # bars, pie, values
 class BHash:
-  plot_types = ["bars", "pie", "values"]
+  plot_types = ["pie", "bars", "values"]
 
   def __init__(self, obj):
     self.obj = obj
 
   def prerender(self, plot_type = "pie"):
+
     if plot_type == "bars":
       x_pos = range(len(self.obj))
       plt.bar(x_pos, self.obj.values() )
       plt.xticks(x_pos, self.obj.keys())
-    elif plot_type == "pie":
+
+    elif plot_type == "pie" or plot_type==None:
       plt.pie(self.obj.values(), labels=self.obj.keys())
+
     elif plot_type == "values":
       plt.plot(self.obj.values())
 

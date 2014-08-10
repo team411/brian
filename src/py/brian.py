@@ -16,9 +16,10 @@ app = Flask(__name__)
 
 class Renderer:
 
-  def __init__(self, src, line):
+  def __init__(self, src, line, style):
     self.raw = src
     self.line = int(line)
+    self.style = style
 
   def render(self):
     lines = filter(
@@ -47,10 +48,10 @@ class Renderer:
     print "-----"
 
     vis = Visualizer(result)
-    print vis.plot_types
-    result = vis.render("pie")
+    types = vis.plot_types
+    result = vis.render(self.style)
 
-    return render_template('render.html', r=result)
+    return render_template('render.html', r=result, types=types)
 
 
 @app.route("/eval", methods=['GET', 'POST'])
@@ -60,10 +61,11 @@ def evaluate():
   else:
     src = request.args.get('code')
 
-  r = Renderer(src, request.args.get('line'))
-  out = r.render()
+  linenum = request.args.get('line')
+  style = request.args.get('style')
 
-  return out
+  r = Renderer(src, linenum, style)
+  return r.render()
 
 @app.route("/form")
 def form():
